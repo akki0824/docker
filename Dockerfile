@@ -15,7 +15,7 @@ RUN npm run build
 FROM nginx:1.23-alpine
 WORKDIR /usr/share/nginx/html
 COPY --from=nodework /myapp/build .
-COPY --from=nodework ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD [ "nginx", "-g", "deamon off;" ]
 
